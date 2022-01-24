@@ -23,7 +23,7 @@ void parovoz(int duration, char name)
     trains_arrived++;
 }
 
-void trafficLight()
+void svetofor()
 {
     std::string input;
     while(true)
@@ -53,9 +53,9 @@ int main()
     std::thread train1(parovoz, duration[0], name[0]);
     std::thread train2(parovoz, duration[1], name[1]);
     std::thread train3(parovoz, duration[2], name[2]);
-    std::thread svetofor(trafficLight);
+    std::thread trafficLight(svetofor);
 
-    svetofor.detach();
+    trafficLight.detach();
     train1.join();
     train2.join();
     train3.join();
